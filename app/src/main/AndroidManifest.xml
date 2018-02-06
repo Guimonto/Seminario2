@@ -9,17 +9,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".DashboardActivity">
+        <activity android:name=".DashboardActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:label="@string/about"
-            android:name=".AboutActivity">
-
+            android:name=".AboutActivity"
+            android:label="@string/about" />
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/settings"
+            android:windowSoftInputMode="stateAlwaysHidden"></activity>
+        <activity
+            android:name=".FavouriteActivity"
+            android:label="@string/favourite">
         </activity>
     </application>
 
