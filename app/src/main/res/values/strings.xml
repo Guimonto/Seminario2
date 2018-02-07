@@ -7,7 +7,7 @@
     <string name="about">About</string>
     <string name="quotation">Quotation Shake</string>
     <string name="random">Random quotations</string>
-    <string name="qs">Quotation Shake by \n\n %1$s \n\n %2$s\n\n2018</string>
+    <string name="qs">Quotation Shake by \n\n Guillermo \n\n guimonto@inf.upv.es\n\n2018</string>
     <string name="name_u">Name that identifies the user</string>
     <string name="insert">Insert your name</string>
     <string name="quo_reci">Quotations will be received in the select language</string>
