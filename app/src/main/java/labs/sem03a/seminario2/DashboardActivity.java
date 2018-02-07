@@ -27,6 +27,12 @@ public class DashboardActivity extends AppCompatActivity {
     public void predeterminado(View v){
 
         switch (v.getId()){
+
+            case R.id.button1:
+                Intent quotation = new Intent(this, QuotationActivity.class);
+                startActivity(quotation);
+                break;
+
             case R.id.button2:
                 Intent fav = new Intent(this, FavouriteActivity.class);
                 startActivity(fav);
