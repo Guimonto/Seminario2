@@ -6,14 +6,14 @@
     <string name="settings">Ajustes</string>
     <string name="about">Sobre</string>
     <string name="random">Citas aleatorias</string>
-    <string name="qs">Quotation Shake por Guillermo guimonto@inf.upv.es 2018</string>
+    <string name="qs">Quotation Shake\n\n por Guillermo \n\nguimonto@inf.upv.es \n\n2018</string>
     <string name="name_u">Nombre que identifica el usuario</string>
     <string name="insert">Inserta tu nombre</string>
     <string name="quo_reci">Las citas se mostrarán en la lengua seleccionada</string>
     <string name="web">Las peticiones web se realizarán usando HTTP</string>
     <string name="get_get">OBTENER</string>
     <string name="post">ENVIAR</string>
-    <string name="hello">Hola %1s! Pulsa refrescar para obtener una nueva cita</string>
+    <string name="hello">Hola %1s! \nPulsa refrescar para obtener una nueva cita</string>
     <string name="sample">Esto es una cita cualquiera</string>
     <string name="sample_author">Este es un autor cualquiera</string>
     <string name="nameless">Sin nombre</string>

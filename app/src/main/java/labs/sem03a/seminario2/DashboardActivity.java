@@ -28,11 +28,6 @@ public class DashboardActivity extends AppCompatActivity {
 
         switch (v.getId()){
 
-            case R.id.button1:
-                Intent quotation = new Intent(this, QuotationActivity.class);
-                startActivity(quotation);
-                break;
-
             case R.id.button2:
                 Intent fav = new Intent(this, FavouriteActivity.class);
                 startActivity(fav);
@@ -46,6 +41,11 @@ public class DashboardActivity extends AppCompatActivity {
             case R.id.button4:
                 Intent abo = new Intent(this, AboutActivity.class);
                 startActivity(abo);
+                break;
+
+            case R.id.button1:
+                Intent quotation = new Intent(this, QuotationActivity.class);
+                startActivity(quotation);
                 break;
         }
     }

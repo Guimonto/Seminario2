@@ -36,7 +36,8 @@
         </activity>
         <activity
             android:name=".QuotationActivity"
-            android:label="@string/quotation" />
+            android:label="@string/quotation">
+        </activity>
     </application>
 
 </manifest>
