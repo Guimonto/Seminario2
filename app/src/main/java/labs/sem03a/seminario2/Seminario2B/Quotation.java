@@ -6,15 +6,15 @@ package labs.sem03a.seminario2.Seminario2B;
 
 public class Quotation {
 
-    private String quoteText;
+    private String quoteTexto;
     private String quoteAuthor;
 
-    public String getText(){
-        return this.quoteText;
+    public String getTexto(){
+        return this.quoteTexto;
     }
 
-    public void setText(String s){
-        this.quoteText = s;
+    public void setTexto(String s){
+        this.quoteTexto = s;
     }
 
     public String getAuthor(){
