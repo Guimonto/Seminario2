@@ -1,16 +1,22 @@
 package labs.sem03a.seminario2;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,6 +29,8 @@ public class FavouriteActivity extends AppCompatActivity {
     ListView favouriteListView;
     List<Quotation> quotationList;
     Adapter adapter;
+    int selectedItem;
+    boolean clearAllQuotations;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +45,51 @@ public class FavouriteActivity extends AppCompatActivity {
 
         favouriteListView.setAdapter((ListAdapter) adapter);
 
+        favouriteListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                Quotation q = (Quotation) favouriteListView.getItemAtPosition(position);
+                String author = q.getAuthor();
+                Intent intent = new Intent();
+                intent.setAction(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse("http://en.wikipedia.org/wiki/Special:Search?search=" + author));
+
+                if(intent.resolveActivity(getPackageManager()) != null){
+                    startActivity(intent);
+                }
+            }
+        });
+
+        favouriteListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                selectedItem = position;
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+
+                builder.setMessage(R.string.confirmation_delete);
+
+                builder.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        quotationList.remove(selectedItem);
+                        ((CustomAdapter) adapter).notifyDataSetChanged();
+                        //adapter.notify();
+                    }
+                });
+
+                builder.setNegativeButton(android.R.string.no, null);
+
+                builder.create().show();
+
+                return  true;
+            }
+        });
+
+        if (quotationList.size() > 0){
+            clearAllQuotations = true;
+        }
     }
 
     public void authorInfoImplicit(View v){
@@ -48,6 +101,8 @@ public class FavouriteActivity extends AppCompatActivity {
             startActivity(intent);
         }
     }
+
+
 
     public ArrayList<Quotation> getMockQuotations(){
         ArrayList<Quotation> quotations = new ArrayList<>();
