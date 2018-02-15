@@ -7,6 +7,8 @@ import android.net.Uri;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Adapter;
 import android.widget.AdapterView;
@@ -92,6 +94,8 @@ public class FavouriteActivity extends AppCompatActivity {
         }
     }
 
+
+
     public void authorInfoImplicit(View v){
         Intent intent = new Intent();
         intent.setAction(Intent.ACTION_VIEW);
@@ -100,6 +104,49 @@ public class FavouriteActivity extends AppCompatActivity {
         if (intent.resolveActivity(getPackageManager()) != null) {
             startActivity(intent);
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.menu_favourite, menu);
+
+        menu.findItem(R.id.clear_action).setVisible(clearAllQuotations);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+
+        switch (item.getItemId()){
+
+            case R.id.clear_action:
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+                builder.setMessage(R.string.confirmation_delete_all);
+
+                builder.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        quotationList.clear();
+
+                        ((CustomAdapter) adapter).notifyDataSetChanged();
+
+                        clearAllQuotations = false;
+
+                        supportInvalidateOptionsMenu();
+                    }
+                });
+
+                builder.setNegativeButton(android.R.string.no, null);
+
+                builder.create().show();
+
+                return true;
+
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
 

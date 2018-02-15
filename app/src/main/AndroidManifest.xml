@@ -18,14 +18,28 @@
         </activity>
         <activity
             android:name=".AboutActivity"
-            android:label="@string/about" />
+            android:label="@string/about"
+            android:parentActivityName="labs.sem03a.seminario2.DashboardActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="labs.sem03a.seminario2.DashboardActivity"/>
+        </activity>
         <activity
             android:name=".SettingsActivity"
             android:label="@string/settings"
-            android:windowSoftInputMode="stateAlwaysHidden" />
+            android:windowSoftInputMode="stateAlwaysHidden"
+            android:parentActivityName=".DashboardActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="labs.sem03a.seminario2.DashboardActivity"/>
+        </activity>
         <activity
             android:name=".FavouriteActivity"
-            android:label="@string/favourite">
+            android:label="@string/favourite"
+            android:parentActivityName=".DashboardActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".DashboardActivity"/>
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -36,7 +50,11 @@
         </activity>
         <activity
             android:name=".QuotationActivity"
-            android:label="@string/quotation">
+            android:label="@string/quotation"
+            android:parentActivityName=".DashboardActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".DashboardActivity"/>
         </activity>
     </application>
 
